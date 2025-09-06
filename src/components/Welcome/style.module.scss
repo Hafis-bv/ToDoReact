@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  h1 {
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: 12px;
+    color: #ff8303;
+  }
+  .link {
+    margin-top: 27px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 31px;
+    border: 2px solid #ff8303;
+    border-radius: 12px;
+    color: #ff8303;
+    text-decoration: none;
+  }
+}
