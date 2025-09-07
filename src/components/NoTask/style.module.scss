@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  h1 {
+    margin-top: 23px; //так как мы инпуту дали 49
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+    border-top: 3px solid #ff8303;
+    border-bottom: 3px solid #ff8303;
+    padding: 12px;
+  }
+}

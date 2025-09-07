@@ -2,9 +2,9 @@ import s from "./style.module.scss";
 import React from "react";
 import { GoPlus } from "react-icons/go";
 
-const ToDoInput = ({ title, setTitle, about, setAbout }) => {
+const ToDoInput = ({ title, setTitle, about, setAbout, handleAdd }) => {
   return (
-    <div className={s.wrapper}>
+    <form onSubmit={handleAdd} className={s.wrapper}>
       <div className={s.inputs}>
         <input
           type="text"
@@ -26,7 +26,7 @@ const ToDoInput = ({ title, setTitle, about, setAbout }) => {
       <button>
         <GoPlus size={50} color="#FF8303" />
       </button>
-    </div>
+    </form>
   );
 };
 

@@ -1,9 +1,10 @@
 .wrapper {
+  width: 100%;
   padding: 23px;
   margin-bottom: 49px;
   display: grid;
   justify-content: center;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 4fr 1fr; // попробуй 4 поменять на 3
   gap: 8px;
   .inputs {
     display: flex;
@@ -17,6 +18,7 @@
     background-color: #242320;
     border-radius: 4px;
     padding: 7px 9px;
+    color: #f0e3ca;
   }
   button {
     width: 70px;
