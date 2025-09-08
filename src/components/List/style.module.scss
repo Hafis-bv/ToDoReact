@@ -13,6 +13,14 @@
     border-radius: 8px;
     width: 100%;
     color: #f0e3ca;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff8303;
+    }
+
     .todoTitle {
       max-width: 265px;
       word-break: break-word;

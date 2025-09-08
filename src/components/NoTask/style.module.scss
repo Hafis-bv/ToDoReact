@@ -2,12 +2,35 @@
   display: flex;
   justify-content: center;
   h1 {
-    margin-top: 23px; //так как мы инпуту дали 49
+    position: relative;
+    margin-top: 23px;
     font-weight: 400;
     font-size: 24px;
     color: #ffffff;
-    border-top: 3px solid #ff8303;
-    border-bottom: 3px solid #ff8303;
     padding: 12px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 64px;
+      height: 3px;
+      background-color: #ff8303;
+      border-radius: 3px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 64px;
+      height: 3px;
+      background-color: #ff8303;
+      border-radius: 3px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import s from "./style.module.scss";
 import { IoClose } from "react-icons/io5";
 
-const List = ({ todos, setTodos, handleDelete }) => {
+const List = ({ todos, handleDelete }) => {
   return (
     <div className={s.wrapper}>
       {todos.map((todo) => (
@@ -12,11 +12,12 @@ const List = ({ todos, setTodos, handleDelete }) => {
             <p>{todo.about}</p>
           </div>
           <button
+            className={s.btn}
             onClick={() => {
               handleDelete(todo.id);
             }}
           >
-            <img src="close.svg" alt="Close" />
+            <IoClose size={20} />
           </button>
         </div>
       ))}
@@ -25,10 +26,3 @@ const List = ({ todos, setTodos, handleDelete }) => {
 };
 
 export default List;
-
-// <IoClose size={15} color="#FF8303" />
-//так как иконка кривой была
-//плюсик и там где начинаеться задание неровно я не ебу почему
-// <IoClose size={15} color="#FF8303" />
-
-/* <img src="close.svg" alt="wsw" /> */

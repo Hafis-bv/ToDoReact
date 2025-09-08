@@ -2,29 +2,36 @@ import React, { useState } from "react";
 import List from "../components/List/List";
 import ToDoInput from "../components/ToDoInput/ToDoInput";
 import NoTask from "../components/NoTask/NoTask";
+import { v4 as uuidv4 } from "uuid";
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
   const [todoAbout, setTodoAbout] = useState("");
-  const newTodods = {
-    id: todos.length,
-    title: todoTitle,
-    about: todoAbout,
-  };
-  const handleDelete = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id)); //мне помог старый проект
-  };
+
   const handleAdd = (e) => {
     e.preventDefault();
-    if (todoTitle.length < 1 || todoAbout.length < 4) {
+    if (todoTitle.length < 4) {
       alert("Your todo is too short");
       return;
     }
-    setTodos([...todos, newTodods]);
+
+    setTodos([
+      ...todos,
+      {
+        id: uuidv4(),
+        title: todoTitle,
+        about: todoAbout,
+      },
+    ]);
     setTodoTitle("");
     setTodoAbout("");
   };
+
+  const handleDelete = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="container">
       <ToDoInput
@@ -35,7 +42,7 @@ const ToDoList = () => {
         handleAdd={handleAdd}
       />
       {todos.length === 0 ? (
-        <NoTask /> // я не додумался как поэтому новый компонент создал
+        <NoTask />
       ) : (
         <>
           <List todos={todos} setTodos={setTodos} handleDelete={handleDelete} />
