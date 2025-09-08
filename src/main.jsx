@@ -4,6 +4,7 @@ import "./index.scss";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ToDoList from "./pages/ToDoList.jsx";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -16,5 +17,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>
 );

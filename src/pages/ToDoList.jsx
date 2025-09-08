@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import List from "../components/List/List";
 import ToDoInput from "../components/ToDoInput/ToDoInput";
 import NoTask from "../components/NoTask/NoTask";
 import { v4 as uuidv4 } from "uuid";
+import { notifyError, notifySuccess } from "../utils/notifications";
 
 const ToDoList = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [todoTitle, setTodoTitle] = useState("");
   const [todoAbout, setTodoAbout] = useState("");
 
   const handleAdd = (e) => {
     e.preventDefault();
     if (todoTitle.length < 4) {
-      alert("Your todo is too short");
+      notifyError("Your task is too short!");
       return;
     }
 
@@ -30,7 +34,12 @@ const ToDoList = () => {
 
   const handleDelete = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+    notifySuccess("Your task successfully deleted!");
   };
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="container">
