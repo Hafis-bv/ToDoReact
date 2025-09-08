@@ -1,11 +1,12 @@
 import React from "react";
 import Welcome from "./components/Welcome/Welcome";
+import Container from "./components/Container/Container";
 
 const App = () => {
   return (
-    <div className="container">
+    <Container>
       <Welcome />
-    </div>
+    </Container>
   );
 };
 

@@ -4,6 +4,7 @@ import ToDoInput from "../components/ToDoInput/ToDoInput";
 import NoTask from "../components/NoTask/NoTask";
 import { v4 as uuidv4 } from "uuid";
 import { notifyError, notifySuccess } from "../utils/notifications";
+import Container from "../components/Container/Container";
 
 const ToDoList = () => {
   const [todos, setTodos] = useState(() => {
@@ -42,7 +43,7 @@ const ToDoList = () => {
   }, [todos]);
 
   return (
-    <div className="container">
+    <Container>
       <ToDoInput
         title={todoTitle}
         setTitle={setTodoTitle}
@@ -57,7 +58,7 @@ const ToDoList = () => {
           <List todos={todos} setTodos={setTodos} handleDelete={handleDelete} />
         </>
       )}
-    </div>
+    </Container>
   );
 };
 

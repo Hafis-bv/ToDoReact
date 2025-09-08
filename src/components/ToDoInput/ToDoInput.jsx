@@ -1,14 +1,21 @@
 import s from "./style.module.scss";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { GoPlus } from "react-icons/go";
 
 const ToDoInput = ({ title, setTitle, about, setAbout, handleAdd }) => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <form onSubmit={handleAdd} className={s.wrapper}>
       <div className={s.inputs}>
         <input
           type="text"
           placeholder="Title.."
+          ref={inputRef}
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
