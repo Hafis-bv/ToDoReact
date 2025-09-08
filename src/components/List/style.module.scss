@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0px 23px 0 23px;
+  .todo {
+    background-color: #242320;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border: 2px solid #a35709;
+    border-radius: 8px;
+    width: 100%;
+    color: #f0e3ca;
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff8303;
+    }
+
+    .todoTitle {
+      max-width: 265px;
+      word-break: break-word;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      h1 {
+        font-weight: 500;
+        font-size: 22px;
+      }
+      p {
+        max-width: 265px;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+    button {
+      width: 32px;
+      height: 32px;
+      background-color: #1b1a17;
+      border: 2px solid #a35709;
+      border-radius: 5px;
+    }
+  }
+}

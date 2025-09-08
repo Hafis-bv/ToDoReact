@@ -1,17 +1,37 @@
 import React, { useState } from "react";
 import List from "../components/List/List";
 import ToDoInput from "../components/ToDoInput/ToDoInput";
+import NoTask from "../components/NoTask/NoTask";
+import { v4 as uuidv4 } from "uuid";
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
   const [todoTitle, setTodoTitle] = useState("");
   const [todoAbout, setTodoAbout] = useState("");
-  const handleAdd = () => {
+
+  const handleAdd = (e) => {
+    e.preventDefault();
     if (todoTitle.length < 4) {
       alert("Your todo is too short");
       return;
     }
+
+    setTodos([
+      ...todos,
+      {
+        id: uuidv4(),
+        title: todoTitle,
+        about: todoAbout,
+      },
+    ]);
+    setTodoTitle("");
+    setTodoAbout("");
   };
+
+  const handleDelete = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <div className="container">
       <ToDoInput
@@ -19,8 +39,15 @@ const ToDoList = () => {
         setTitle={setTodoTitle}
         about={todoAbout}
         setAbout={setTodoAbout}
+        handleAdd={handleAdd}
       />
-      <List />
+      {todos.length === 0 ? (
+        <NoTask />
+      ) : (
+        <>
+          <List todos={todos} setTodos={setTodos} handleDelete={handleDelete} />
+        </>
+      )}
     </div>
   );
 };
